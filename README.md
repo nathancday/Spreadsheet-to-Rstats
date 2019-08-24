@@ -1,11 +1,7 @@
-# Spreadsheets to Rstats
+# Spreadsheets to Rstats <img src='https://vectr.com/nathancday/a1yRPZ18Y.svg?width=400&height=400&select=a1yRPZ18Ypage0', align='right'>
 ### An introduction to R through analysis
 
-General audience: People who do analysis with spreadsheets, and want to learn how to do it with R.
-
-Specific audience: The examples here are of assay analysis so anyone involved with biochemical analysis will be right at home. Specifically researchers that are interested in Rstats and reproducibile research will get the most out of this.
-
-This material is designed as a 4-hour workshop, but is broken up into 4 secions (1-hour each) for maximum flexibility. 
+This material is designed as a 4-hour workshop, and is broken up into 4 sections (1-hour each) for maximum flexibility. Everything is based in the cloud, so no installations are required.
 
 The sections:
 
@@ -14,6 +10,9 @@ The sections:
 * Manipulating data with dplyr
 * Statistical testing and capstone exercise
 
+General audience: People who do analysis with spreadsheets, and want to learn how to do it with R. *No prior coding experience is expected.*
+
+Specific audience: The examples here are of assay analysis so anyone involved with biochemical analysis will be right at home. Specifically researchers that are interested in Rstats and reproducibile research will get the most out of this.
 
 Slides are available [on Google Slides](https://docs.google.com/presentation/d/1q2Ij3xv5mhheB0WPhZ6tpPJKMrIzkduz_tVtwpg4Sws/edit?usp=sharing) and also in this repo as `.pdf` and `.ppt` files.
 
