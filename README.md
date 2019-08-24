@@ -1,21 +1,24 @@
 # Spreadsheets to Rstats
 ### An introduction to R through analysis
 
-General audience: People who perform analysis with spreadsheets, but have not been exposed to scripting languages.
+General audience: People who do analysis with spreadsheets, and want to learn how to do it with R.
 
-Specific audience: The examples here are of assay analysis so anyone involved with bio-chemical analysis will be right at home. Specifically researchers that are interested in Rstats and reproducibile research will get the most out of this.
+Specific audience: The examples here are of assay analysis so anyone involved with biochemical analysis will be right at home. Specifically researchers that are interested in Rstats and reproducibile research will get the most out of this.
 
-This material is designed as a half-day (4-hour) workshop, with slides and exercises.
+This material is designed as a 4-hour workshop, but is broken up into 4 secions (1-hour each) for maximum flexibility. 
 
-The slides are [available here](https://docs.google.com/presentation/d/1q2Ij3xv5mhheB0WPhZ6tpPJKMrIzkduz_tVtwpg4Sws/edit?usp=sharing) and are broken into 4 sections:
+The sections:
 
 * Computer languages and the basic building blocks of R
-* Visualizations with ggplot2
-* Manipulations with dplyr
+* Importing data from Excel and visualizing it with ggplot2
+* Manipulating data with dplyr
 * Statistical testing and capstone exercise
 
-Excercises are avaialbe in [Rstudio Cloud here](https://rstudio.cloud/project/411105) and also here in this repo. The exercises are broken into four scripts, one for each section, and one directory with Excel files.
+
+Slides are available [on Google Slides](https://docs.google.com/presentation/d/1q2Ij3xv5mhheB0WPhZ6tpPJKMrIzkduz_tVtwpg4Sws/edit?usp=sharing) and also in this repo as `.pdf` and `.ppt` files.
+
+Excercises are avaialbe in [Rstudio Cloud here](https://rstudio.cloud/project/411105) and also here in this repo. The exercises are broken into four scripts, one for each section. The is one directory `/data/` with Excel files.
 
 ** Notes about the Rstudio Cloud instance **
-* It is set to be available (i.e. public), but I have experienced problems sharing it, open an issue if you encounter the same.
+* It is set to be available (i.e. public), but I have had problems sharing it, open an issue if you encounter the same.
 * Once you get in, make sure you save it as copy for yourself. If you don't you risk losing all of you work 😟
