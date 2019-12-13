@@ -8,110 +8,48 @@ library(ggplot2)
 library(dplyr)
 
 # Read In -----------------------------------------------------------------
-# collect and homogenize data
-
-# get all of the sheets out of 'curveball.xlsx'
-
-?excel_sheets
-
+# collect and homogenize data from
 curveball_file <- "data/curveball.xlsx"
 
-sheets <- excel_sheets(curveball_file)
+# get all of the sheets out of curveball
+?excel_sheets
 
+# read each sheet in separately as 'dat1', 'dat2' and 'dat3'
 ?read_excel
 
-dat <- read_excel(curveball_file)
-dat2 <- read_excel(curveball_file, sheet = 2, col_names = colnames(dat))
-dat3 <- read_excel(curveball_file, sheet = 3)
-
-# make sure the column names match
-
+# sync the columns so they all match
+?names
 ?rename
-names(dat3)
-names(dat)
-dat3 <- rename(dat3, device = device_id, tx_cmpd = tx_compound)
 
-# stack together into one long data frame
-
+# stack the sheets together into one long data frame
 ?bind_rows
-dat <- bind_rows(dat, dat2, dat3)
 
 # See it -----------------------------------------------------------------
 # exploratory viz and tables
 
 # make a plot comparing treatments, show all data points
-
 ?ggplot
-
 ?geom_point
 
-ggplot(dat, aes(tx_cmpd, value)) +
-  geom_point(alpha = .25)
-
-# remove outliers
-
+# remove two outlier rows/observations
 ?filter
-dat <- filter(dat, value < 300)
-dat <- filter(dat, value > 75)
 
-# plot again and add a summary geom onto original
-
+# plot again and add a summary crossbar geom onto original
 ?stat_summary
 
-ggplot(dat, aes(tx_cmpd, value)) +
-  geom_point(alpha = .25) +
-  stat_summary(geom = "crossbar", fun.data = mean_cl_normal)
-
 # calculate a summary table with: n, average, standard deviation for each group
-
 ?group_by
-
 ?summarise
 
-dat %>%
-  group_by(tx_cmpd) %>% 
-  summarise(n = n(),
-            avg = mean(value),
-            std_dev = sd(value))
-
 # Test it ----------------------------------------------------------------
-# Is there a difference between treatment groups
+# How confident are we in that difference?
 
-# perform a 2-sample unpaired T-test
+# perform a 2-sample T-test (unpaired) using the formula argument
 ?t.test
 
-t.test(value ~ tx_cmpd, data = dat)
-
-# construct a linear model
+# construct a linear model called 'mod' using the formula argument again
 ?lm
-mod <- lm(value ~ tx_cmpd, data = dat)
 
-# summarise the model
+# explore 'mod' for insights
 ?summary
-summary(mod)
-
-# HSTX style -----------------------------------------------------------
-# use model summary functions from our in-house R package
-
-remotes::install_github("hemoshear/assayr2")
-library(assayr2)
-
-?make_stats
-
-dat$tx_cmpd <- factor(dat$tx_cmpd, levels = c("vehicle", "compound"))
-
-mod <- lm(value ~ 0 + tx_cmpd, data = dat)
-
-stats <- make_stats(mod)
-
-?geom_stat_crossbar
-?geom_stat_label
-
-ggplot(dat, aes(tx_cmpd, value)) +
-  geom_point(alpha = .25) +
-  geom_stat_crossbar(stats) +
-  geom_stat_label(stats) +
-  theme_assayr()
-
-
 
